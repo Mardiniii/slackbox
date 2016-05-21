@@ -21,6 +21,10 @@
 #  username               :string
 #  image                  :string
 #  team_id                :integer
+#  provider               :string
+#  uid                    :string
+#  username               :string
+#  image                  :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

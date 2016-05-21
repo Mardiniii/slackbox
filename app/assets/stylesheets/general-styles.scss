@@ -1,0 +1,25 @@
+.alert {
+  right: 15px;
+  top: 105px;
+  z-index: 1100;
+  position: fixed;
+  span{
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    background: rgba(0,0,0,0.07);
+    // color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+.order-options {
+  font-size: 18px;
+}
+
+.order-options-container {
+  margin-bottom: 20px;
+}

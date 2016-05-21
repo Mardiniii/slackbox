@@ -7,10 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
+  <div class="alerts">
+    <% if notice %> <div class="alert alert-success"><%= notice %> <span>x</span></div> <% end %>
+    <% if alert %> <div class="alert alert-danger"><%= alert %> <span>x</span></div> <% end %>
+  </div>
+  <%= render 'layouts/navbar' %>
+  <%= yield %>
 
 </body>
 </html>
+<script>
+  $(".alert").fadeIn(500).css("opacity","0.85").delay( 6000 ).fadeOut( 1000 );
+  $('.alerts').on('click','.alert',function(){ $(this).remove() });
+</script>

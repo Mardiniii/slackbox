@@ -21,6 +21,10 @@
 #  username               :string
 #  image                  :string
 #  team_id                :integer
+#  provider               :string
+#  uid                    :string
+#  username               :string
+#  image                  :string
 #
 
 require 'test_helper'
