@@ -11,7 +11,7 @@
 #  slack_response :json
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  data_clip_name :string
+#  name           :string
 #
 
 require 'test_helper'
