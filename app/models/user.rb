@@ -16,6 +16,7 @@
 #  slack_id               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  team_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -23,4 +24,5 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  belongs_to :team
 end
