@@ -33,10 +33,10 @@ class CommandRequest
       self.channel = self.team.channels.create!(slack_id: channel_id,name: channel_name)
     end
 
-    if self.user = self.team.users.find_by_slack_id(user_id)
+    if self.user = self.team.users.find_by_uid(user_id)
       self.user.update!(username: user_name)
     else
-      self.user = self.team.users.create!(slack_id: user_id,username: user_name)
+      self.user = self.team.users.create!(uid: user_id,username: user_name)
     end
 
   end
