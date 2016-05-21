@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521181929) do
+ActiveRecord::Schema.define(version: 20160521183227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20160521181929) do
 
   add_index "data_clips", ["channel_id"], name: "index_data_clips_on_channel_id", using: :btree
   add_index "data_clips", ["user_id"], name: "index_data_clips_on_user_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["team_id"], name: "index_tags_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -71,5 +80,6 @@ ActiveRecord::Schema.define(version: 20160521181929) do
   add_foreign_key "channels", "teams"
   add_foreign_key "data_clips", "channels"
   add_foreign_key "data_clips", "users"
+  add_foreign_key "tags", "teams"
   add_foreign_key "users", "teams"
 end
