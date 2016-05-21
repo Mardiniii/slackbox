@@ -38,9 +38,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.image = auth.info.image # assuming the user model has an image
       user.username = auth.info.user # assuming the user model has a username
-      puts "!!!!!!!!!!!!!!!!!"
       associate_or_create_team(auth, user)
-      puts "!!!!!!!!!!!!!!!!!"
     end
   end
 
@@ -57,7 +55,7 @@ class User < ActiveRecord::Base
     if team
       user.team_id = team.id
     else
-      team = Team.create(name: auth.info.team, slack_id: auth.info.team_id)
+      team = Team.create(name: auth.info.team, domain: auth.info.team_domain, slack_id: auth.info.team_id)
       user.team_id = team.id
     end
   end
