@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def index
-    @user = current_user
-    @team = @user.team
+    if user_signed_in?
+      @user = current_user
+      @team = @user.team
+    end
   end
 end

@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
     team = Team.find_by(slack_id: auth.info.team_id)
     if team
       user.team_id = team.id
+      team.update(name: auth.info.team) if team.name.nil?
     else
       team = Team.create(name: auth.info.team, domain: auth.info.team_domain, slack_id: auth.info.team_id)
       user.team_id = team.id
