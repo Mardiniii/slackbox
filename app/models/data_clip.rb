@@ -13,6 +13,7 @@
 #  updated_at     :datetime         not null
 #  name           :string
 #  team_id        :integer
+#  data_clip_name :string
 #
 
 class DataClip < ActiveRecord::Base

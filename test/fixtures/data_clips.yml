@@ -13,6 +13,7 @@
 #  updated_at     :datetime         not null
 #  name           :string
 #  team_id        :integer
+#  data_clip_name :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -21,14 +22,14 @@ one:
   data: MyText
   starred: false
   is_url: false
-  user_id: 
-  channel_id: 
-  slack_response: 
+  user_id:
+  channel_id:
+  slack_response:
 
 two:
   data: MyText
   starred: false
   is_url: false
-  user_id: 
-  channel_id: 
-  slack_response: 
+  user_id:
+  channel_id:
+  slack_response:
