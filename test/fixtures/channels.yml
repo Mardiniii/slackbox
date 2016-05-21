@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: channels
+#
+#  id         :integer          not null, primary key
+#  team_id    :integer
+#  name       :string
+#  slack_id   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_id: 
+  name: MyString
+  slack_id: MyString
+
+two:
+  team_id: 
+  name: MyString
+  slack_id: MyString

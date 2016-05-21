@@ -11,10 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521171550) do
+ActiveRecord::Schema.define(version: 20160521185840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "slack_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "channels", ["team_id"], name: "index_channels_on_team_id", using: :btree
+
+  create_table "data_clips", force: :cascade do |t|
+    t.text     "data"
+    t.boolean  "starred",        default: false
+    t.boolean  "is_url",         default: false
+    t.integer  "user_id"
+    t.integer  "channel_id"
+    t.json     "slack_response"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "data_clips", ["channel_id"], name: "index_data_clips_on_channel_id", using: :btree
+  add_index "data_clips", ["user_id"], name: "index_data_clips_on_user_id", using: :btree
+
+  create_table "data_clips_tags", id: false, force: :cascade do |t|
+    t.integer "data_clip_id", null: false
+    t.integer "tag_id",       null: false
+  end
+
+  add_index "data_clips_tags", ["data_clip_id", "tag_id"], name: "index_data_clips_tags_on_data_clip_id_and_tag_id", using: :btree
+  add_index "data_clips_tags", ["tag_id", "data_clip_id"], name: "index_data_clips_tags_on_tag_id_and_data_clip_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["team_id"], name: "index_tags_on_team_id", using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slack_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,9 +78,16 @@ ActiveRecord::Schema.define(version: 20160521171550) do
     t.string   "slack_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
 
+  add_foreign_key "channels", "teams"
+  add_foreign_key "data_clips", "channels"
+  add_foreign_key "data_clips", "users"
+  add_foreign_key "tags", "teams"
+  add_foreign_key "users", "teams"
 end
