@@ -11,6 +11,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'puma'
+gem 'annotate'
+gem 'hirb'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'
