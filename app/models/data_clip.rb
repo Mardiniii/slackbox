@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  data           :text
 #  starred        :boolean          default(FALSE)
-#  is_url         :boolean          default(FALSE)
+#  has_urls       :boolean          default(FALSE)
 #  user_id        :integer
 #  channel_id     :integer
 #  slack_response :json
@@ -13,7 +13,6 @@
 #  updated_at     :datetime         not null
 #  name           :string
 #  team_id        :integer
-#  data_clip_name :string
 #
 
 class DataClip < ActiveRecord::Base
@@ -21,4 +20,6 @@ class DataClip < ActiveRecord::Base
   belongs_to :channel
   belongs_to :team
   has_and_belongs_to_many :tags
+
+  accepts_nested_attributes_for :tags
 end

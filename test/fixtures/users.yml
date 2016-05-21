@@ -13,7 +13,6 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  slack_id               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  team_id                :integer

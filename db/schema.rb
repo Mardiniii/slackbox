@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160522030809) do
   create_table "data_clips", force: :cascade do |t|
     t.text     "data"
     t.boolean  "starred",        default: false
-    t.boolean  "is_url",         default: false
+    t.boolean  "has_urls",       default: false
     t.integer  "user_id"
     t.integer  "channel_id"
     t.json     "slack_response"
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20160522030809) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "slack_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "team_id"
