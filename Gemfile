@@ -18,6 +18,7 @@ gem 'omniauth-slack'
 gem 'figaro'
 gem 'table_print'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-datepicker-rails'
 
 group :production do
   gem 'rails_12factor'
