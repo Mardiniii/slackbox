@@ -3,10 +3,11 @@
 <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <p>
-    <strong>team:</strong> <%= current_user.team.name %> <br>
-    <strong>username:</strong> <%= current_user.username %> <br>
-    <strong>email:</strong> <%= current_user.email %> <br>
-    <strong>image:</strong> <img src="<%= current_user.image %>" alt="" /> <br>
+    <strong>team name:</strong> <%= @team.name %> <br>
+    <strong>team domain:</strong> <%= @team.domain %> <br>
+    <strong>username:</strong> <%= @user.username %> <br>
+    <strong>email:</strong> <%= @user.email %> <br>
+    <strong>image:</strong> <img src="<%= @user.image %>" alt="" /> <br>
   </p>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
