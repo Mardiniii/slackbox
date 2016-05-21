@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521183227) do
+ActiveRecord::Schema.define(version: 20160521183644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160521183227) do
 
   add_index "data_clips", ["channel_id"], name: "index_data_clips_on_channel_id", using: :btree
   add_index "data_clips", ["user_id"], name: "index_data_clips_on_user_id", using: :btree
+
+  create_table "data_clips_tags", id: false, force: :cascade do |t|
+    t.integer "data_clip_id", null: false
+    t.integer "tag_id",       null: false
+  end
+
+  add_index "data_clips_tags", ["data_clip_id", "tag_id"], name: "index_data_clips_tags_on_data_clip_id_and_tag_id", using: :btree
+  add_index "data_clips_tags", ["tag_id", "data_clip_id"], name: "index_data_clips_tags_on_tag_id_and_data_clip_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
