@@ -14,6 +14,7 @@ gem 'devise'
 gem 'puma'
 gem 'annotate'
 gem 'hirb'
+gem 'omniauth-slack'
 
 group :production do
   gem 'rails_12factor'

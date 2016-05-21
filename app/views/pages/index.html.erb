@@ -1,2 +1,14 @@
 <h1>Pages#index</h1>
 <p>Find me in app/views/pages/index.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <p>
+    <strong>username:</strong> <%= current_user.username %> <br>
+    <strong>email:</strong> <%= current_user.email %> <br>
+    <strong>image:</strong> <img src="<%= current_user.image %>" alt="" /> <br>
+  </p>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+  <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
+  <%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack) %>
+<% end %>
