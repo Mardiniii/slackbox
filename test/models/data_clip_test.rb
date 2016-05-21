@@ -4,8 +4,8 @@
 #
 #  id             :integer          not null, primary key
 #  data           :text
-#  starred        :boolean
-#  is_url         :boolean
+#  starred        :boolean          default(FALSE)
+#  is_url         :boolean          default(FALSE)
 #  user_id        :integer
 #  channel_id     :integer
 #  slack_response :json

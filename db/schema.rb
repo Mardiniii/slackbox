@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521183644) do
+ActiveRecord::Schema.define(version: 20160521185840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20160521183644) do
 
   create_table "data_clips", force: :cascade do |t|
     t.text     "data"
-    t.boolean  "starred"
-    t.boolean  "is_url"
+    t.boolean  "starred",        default: false
+    t.boolean  "is_url",         default: false
     t.integer  "user_id"
     t.integer  "channel_id"
     t.json     "slack_response"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "data_clips", ["channel_id"], name: "index_data_clips_on_channel_id", using: :btree
