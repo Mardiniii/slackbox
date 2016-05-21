@@ -16,6 +16,10 @@
 #  slack_id               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  provider               :string
+#  uid                    :string
+#  username               :string
+#  image                  :string
 #  team_id                :integer
 #
 
