@@ -7,6 +7,7 @@
 #  slack_id   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  domain     :string
 #
 
 class Team < ActiveRecord::Base
