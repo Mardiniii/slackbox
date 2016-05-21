@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.4"
+ruby '2.2.4'
 
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -15,7 +15,8 @@ gem 'puma'
 gem 'annotate'
 gem 'hirb'
 gem 'omniauth-slack'
-gem "figaro"
+gem 'figaro'
+gem 'table_print'
 
 group :production do
   gem 'rails_12factor'
