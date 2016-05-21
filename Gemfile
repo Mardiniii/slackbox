@@ -21,6 +21,8 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :development do
