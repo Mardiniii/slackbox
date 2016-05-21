@@ -15,7 +15,8 @@ gem 'puma'
 gem 'annotate'
 gem 'hirb'
 gem 'omniauth-slack'
-gem "figaro"
+gem 'figaro'
+gem 'table_print'
 
 group :production do
   gem 'rails_12factor'
