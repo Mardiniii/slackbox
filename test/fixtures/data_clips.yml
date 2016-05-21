@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: data_clips
+#
+#  id             :integer          not null, primary key
+#  data           :text
+#  starred        :boolean
+#  is_url         :boolean
+#  user_id        :integer
+#  channel_id     :integer
+#  slack_response :json
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: MyText
+  starred: false
+  is_url: false
+  user_id: 
+  channel_id: 
+  slack_response: 
+
+two:
+  data: MyText
+  starred: false
+  is_url: false
+  user_id: 
+  channel_id: 
+  slack_response: 
