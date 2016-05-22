@@ -1,6 +1,98 @@
 <nav class="home-nav">
-  <ul><a href="">How it works</a></ul>
+  <ul class="list-inline">
+    <!-- <li><a href="">How it works</a></li> -->
+    <!-- <li><a class='button' href="">login</a></li> -->
+    <li><%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack),class:'button' %></li>
+  </ul>
 </nav>
 <section class="hero">
-  <%= image_tag 'logo?v=0.2', class:'logo' %>
+  <div>
+    <%= image_tag 'logo?v=0.2', class:'logo' %>
+    <p>Finally, a fun and rewarding way to recognize others. It's time to start celebrating hitting goals.</p>
+  </div>
 </section>
+<!-- <hr> -->
+<section>
+    <div class="container">
+      <div class="row p-b-2">
+        <h3 class="text-center">How it Works</h3>
+        <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+      </div>
+      <div class="row p-b-2">
+        <div class="col-md-4">
+          <%= image_tag 'feature-1', class: 'img-responsive' %>
+          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag 'feature-1', class: 'img-responsive' %>
+          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag 'feature-1', class: 'img-responsive' %>
+          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <hr> -->
+        <div class="signup-box">
+
+
+        <section class="form-request">
+          <div class="container">
+            <div class="col-lg-12">
+              <h3 class="text-center form-title">Want to try slackBox with your team?</h3>
+            </div>
+          </div>
+          <div class="container">
+            <form id="email-form" class="col-sm-6 col-sm-offset-3">
+              <div class="input-group" style="width:100%;text-align:center;margin:0 auto;">
+                <input name ="email" id="email" class="form-control input-lg" title="Please enter your email." placeholder="Enter your email" type="email" required="required">
+                <span class="input-group-btn"><button class="btn btn-form btn-lg btn-primary" type="submit">Yes i do</button></span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<footer>
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-12 text-center">
+          <%= image_tag 'logowhite', class: 'logo-footer' %>
+         <p>Copyright © 2016. All rights reserved.</p>
+         <a href="">info@kaizendevs.com</a>
+       </div>
+     </div>
+   </div>
+ </footer>
+
+<script>
+  $(function() {
+    $('#email-form').on('submit',function(e){
+      e.preventDefault();
+      $.ajax({
+        url: "https://formspree.io/info@kaizendevs.com",
+        method: "POST",
+        data: {email: $('#email').val()},
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          $('#email-form').slideUp('slow',function(){
+            $('.form-title').text('¡Gracias por confiar en nosotros!');
+          });
+        },
+        error: function(err) {
+          $('#email-form').slideUp('slow',function(){
+            $('.form-title').text(':/ Parece que hubo un error, intenta por favor más tarde.');
+          });
+        }
+      });
+    })
+  });
+</script>
