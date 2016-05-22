@@ -1,5 +1,5 @@
 angular.module('DashboardApp',[])
-.controller('DashboardController',function($scope) {
+.controller('DashboardController',['$scope',function($scope) {
   console.log('Hello from the other side')
   $scope.filter = {
     channel: null,
@@ -47,4 +47,4 @@ angular.module('DashboardApp',[])
   window.scope = function() {
     return $scope;
   }
-});
+}]);
