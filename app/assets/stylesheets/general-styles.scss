@@ -18,6 +18,8 @@
 
 .order-options {
   font-size: 18px;
+  float: right;
+  margin-top: 35px;
 }
 
 .order-options-container {
@@ -35,4 +37,8 @@
 .data-clip-number {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+#team-name {
+  display: inline-block;
 }
