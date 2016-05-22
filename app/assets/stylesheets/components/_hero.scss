@@ -1,0 +1,97 @@
+
+.home-nav{
+  z-index: 9999;
+  position: absolute;
+  top:15px;
+  right: 25px;
+  border: 1px solid red;
+  padding: 0 !important;
+  border:0;
+  margin:20px 0;
+  li{
+    padding: 0 !important;
+    border:0;
+    margin:0;
+    a{
+      color:$brand-primary;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 17px;
+    }
+    a.button{
+      border:2px solid $brand-primary;
+      padding: 10px;
+      margin:0 0 0 5px;
+      border-radius:5px;
+      // background: rgba(0,0,0,0.25);
+
+    }
+  }
+}
+.hero{
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  min-height: 450px;
+  max-resolution: 100%;
+  background: rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  &:after{
+
+    border-bottom: 100px solid red;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 0;
+    width: 100px;
+  }
+
+  p{
+    color:#111;
+    font-size: 24px;
+    padding: 10px 20px;
+    margin-top:30px;
+    font-weight: 300;
+    max-width: 550px;
+    background: rgba(34,200,160,0.75)
+  }
+  .logo{
+    width:150px;
+    height: 135px;
+  }
+}
+
+.rectangle{
+  top: 30%;
+  position: absolute;
+  left: 0;
+}
+
+.points{
+  overflow: hidden;
+  position: absolute;
+  right: 15px;
+  top:50%;
+  margin-top: -50px;
+  width: 100px;
+}
+.line-green{
+  overflow: hidden;
+  position: absolute;
+  left: 16%;
+  top:10%;
+  margin-top: -20px;
+  width: 60px;
+}
+.line-blue{
+  overflow: hidden;
+  position: absolute;
+  left: 22%;
+  top:70%;
+  margin-top: -20px;
+  width: 40px;
+}

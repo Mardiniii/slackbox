@@ -1,12 +1,111 @@
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <p>
-    <strong>team name:</strong> <%= @team.name %> <br>
-    <strong>team domain:</strong> <%= @team.domain %> <br>
-    <strong>username:</strong> <%= @user.username %> <br>
-    <strong>email:</strong> <%= @user.email %> <br>
-    <strong>image:</strong> <img src="<%= @user.image %>" alt="" /> <br>
-  </p>
-<% else %>
-  <%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack) %>
-<% end %>
+<!-- <div class="fullscreen-bg">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.webm" type="video/webm">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.mp4" type="video/mp4">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.ogv" type="video/ogg">
+    </video>
+</div> -->
+<nav class="home-nav">
+  <ul class="list-inline">
+    <% if user_signed_in? %>
+      <li><%= link_to "Go to dashboard", panel_path, class:'button' %></li>
+    <% else %>
+      <li><%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack),class:'button' %></li>
+    <% end %>
+  </ul>
+</nav>
+<section class="hero">
+  <%= image_tag 'rectangle', class:'rectangle' %>
+  <%= image_tag 'points', class:'points' %>
+  <%= image_tag 'line-green', class:'line-green' %>
+  <%= image_tag 'line-blue', class:'line-blue' %>
+
+  <div>
+    <%= image_tag 'logo?v=0.2', class:'logo' %>
+    <p>Save on slack dead simple</p>
+  </div>
+</section>
+<section style="background:white;">
+    <div class="container">
+      <div class="row p-b-2">
+        <h3 class="text-center">Why slackBox?</h3>
+        <p class="text-center gray"></p>
+      </div>
+      <div class="row p-b-2">
+        <div class="col-md-4">
+          <%= image_tag 'feature-1', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Integrate, store and share.</p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag 'feature-2', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Time is money, just focus on being more productive.</p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag 'feature-3', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Your team's data clips neatly organized and forever safe with you</p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <hr> -->
+        <div class="signup-box">
+
+
+        <section class="form-request">
+          <div class="container">
+            <div class="col-lg-12">
+              <h3 class="text-center form-title">Want to try slackBox with your team?</h3>
+            </div>
+          </div>
+          <div class="container">
+            <form id="email-form" class="col-sm-6 col-sm-offset-3">
+              <div class="input-group" style="width:100%;text-align:center;margin:0 auto;">
+                <input name ="email" id="email" class="form-control input-lg" title="Please enter your email." placeholder="Enter your email" type="email" required="required">
+                <span class="input-group-btn"><button class="btn btn-form btn-lg btn-primary" type="submit">Yes i do</button></span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<footer>
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-12 text-center">
+          <%= image_tag 'logowhite', class: 'logo-footer' %>
+         <p>Copyright © 2016. All rights reserved.</p>
+         <a href="">info@kaizendevs.com</a>
+       </div>
+     </div>
+   </div>
+ </footer>
+
+<script>
+  $(function() {
+    $('#email-form').on('submit',function(e){
+      e.preventDefault();
+      $.ajax({
+        url: "https://formspree.io/info@kaizendevs.com",
+        method: "POST",
+        data: {email: $('#email').val()},
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          $('#email-form').slideUp('slow',function(){
+            $('.form-title').text("Awesome, we'll be in touch very soon!");
+          });
+        },
+        error: function(err) {
+          $('#email-form').slideUp('slow',function(){
+            $('.form-title').text(':/ Bummer, something went wrong, please try again later.');
+          });
+        }
+      });
+    })
+  });
+</script>
