@@ -32,5 +32,6 @@ class Command
   register(HelpCommand,:help)
   register(SaveCommand,:save)
   register(StarCommand,:star)
+  register(SearchCommand,:search)
 
 end
