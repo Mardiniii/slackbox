@@ -14,4 +14,5 @@ class Team < ActiveRecord::Base
   has_many :channels
   has_many :users
   has_many :tags
+  has_many :data_clips
 end

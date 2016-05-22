@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522024917) do
+ActiveRecord::Schema.define(version: 20160522030809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 20160522024917) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "name"
+    t.integer  "team_id"
   end
 
   add_index "data_clips", ["channel_id"], name: "index_data_clips_on_channel_id", using: :btree
+  add_index "data_clips", ["team_id"], name: "index_data_clips_on_team_id", using: :btree
   add_index "data_clips", ["user_id"], name: "index_data_clips_on_user_id", using: :btree
 
   create_table "data_clips_tags", id: false, force: :cascade do |t|
@@ -80,11 +82,11 @@ ActiveRecord::Schema.define(version: 20160522024917) do
     t.string   "slack_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "team_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "username"
     t.string   "image"
-    t.integer  "team_id"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160522024917) do
 
   add_foreign_key "channels", "teams"
   add_foreign_key "data_clips", "channels"
+  add_foreign_key "data_clips", "teams"
   add_foreign_key "data_clips", "users"
   add_foreign_key "tags", "teams"
   add_foreign_key "users", "teams"

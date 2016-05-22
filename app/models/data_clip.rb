@@ -12,10 +12,12 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  name           :string
+#  team_id        :integer
 #
 
 class DataClip < ActiveRecord::Base
   belongs_to :user
   belongs_to :channel
+  belongs_to :team
   has_and_belongs_to_many :tags
 end

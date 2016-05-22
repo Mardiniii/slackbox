@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          omniauth_providers: [:slack]
 
+  has_many :data_clips
+
   def self.from_omniauth(auth)
     where(uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
