@@ -31,5 +31,6 @@ class Command
   #TODO: Autoload commands
   register(HelpCommand,:help)
   register(SaveCommand,:save)
+  register(StarCommand,:star)
 
 end

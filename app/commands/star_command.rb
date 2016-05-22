@@ -1,16 +1,16 @@
-class SaveCommand < Command
-  COMMAND_REGEX = /^save +(\w+) (.*)$/m
+class StarCommand < Command
+  COMMAND_REGEX = /^star +(\w+) (.*)$/m
 
   def self.description
-    "Save data in your team's slackbox. The data can contain text, URLs and tags."
+    "Save starred data in your team's slackbox. The data can contain text, URLs and tags."
   end
 
   def self.usage
-    '`/slackbox save [data clip name] [some text that can contain text, URLs and tags]`'
+    '`/slackbox star [data clip name] [some text that can contain text, URLs and tags]`'
   end
 
   def self.example
-    '`/slackbox save admin_password 12345678 #password #secret`'
+    '`/slackbox star admin_password 12345678 #password #secret`'
   end
 
   def response
@@ -44,7 +44,7 @@ class SaveCommand < Command
     data_clip = DataClip.create!(
       name: name,
       data: value,
-      starred: false,
+      starred: true,
       has_urls: value.match(URI::regexp(%w(http https))),
       user_id: command_request.user.id,
       channel_id: command_request.channel.id,
