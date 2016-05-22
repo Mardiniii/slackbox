@@ -79,18 +79,20 @@
       <div class="row">
         <div class="col-md-12">
           <% @data_clips.each do |data_clip| %>
-            <div class="col-md-3 col-sm-6">
+          <div class="pointer">
+            <%= link_to '',dashboard_path(data_clip), remote: true, class: "modal-btn data-clip-#{data_clip.id}"%>
+            <div class="col-md-3 col-sm-6 data-clip" data-id="<%= data_clip.id %>">
               <div class="thumbnail" style="height: 260px">
                 <h4 class="data-clip-number">
                   <%= data_clip.id %>. <%= data_clip.name %>
                   <% if data_clip.starred %>
-                    <%= link_to "#" do %>
-                      <span class="glyphicon glyphicon-star data-clip-started"></span>
-                    <% end %>
+                  <%= link_to "#" do %>
+                  <span class="glyphicon glyphicon-star data-clip-started"></span>
+                  <% end %>
                   <% else %>
-                    <%= link_to "#" do %>
-                      <span class="glyphicon glyphicon-star-empty data-clip-started"></span>
-                    <% end %>
+                  <%= link_to "#" do %>
+                  <span class="glyphicon glyphicon-star-empty data-clip-started"></span>
+                  <% end %>
                   <% end %>
                 </h4>
                 <div class="height" style="height: 140px; overflow-y: hidden">
@@ -101,6 +103,8 @@
                 </div>
               </div>
             </div>
+          </div>
+
           <% end %>
         </div>
       </div>
@@ -121,3 +125,13 @@
   }
 }
 </style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.data-clip').click(function(event) {
+      var $dataClip = $(event.currentTarget);
+      var dataClipId = $dataClip.data('id')
+      $('.data-clip-'+dataClipId).click();
+      //$dataClip.find('.modal-btn').click();
+    })
+  })
+</script>

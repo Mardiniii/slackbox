@@ -9,4 +9,9 @@ class DashboardController < ApplicationController
     @tags = @team.tags
     @data_clips = @team.data_clips
   end
+
+  def show
+    @data_clip = DataClip.find(params[:id])
+  end
+
 end
