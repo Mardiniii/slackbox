@@ -4,33 +4,27 @@
       <div class="col-md-12">
         <h2>Channels <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
         <ul>
-          <li><%= link_to 'Channel 1', "#" %></li>
-          <li><%= link_to 'Channel 2', "#" %></li>
-          <li><%= link_to 'Channel 3', "#" %></li>
-          <li><%= link_to 'Channel 4', "#" %></li>
-          <li><%= link_to 'Channel 5', "#" %></li>
+          <% @channels.each do |channel| %>
+            <li><%= link_to channel.name, "#" %></li>
+          <% end %>
         </ul>
       </div>
 
       <div class="col-md-12">
         <h2>People <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
         <ul>
-          <li><%= link_to 'Andrew', "#" %></li>
-          <li><%= link_to 'Michael', "#" %></li>
-          <li><%= link_to 'Joseph', "#" %></li>
-          <li><%= link_to 'Thomas', "#" %></li>
-          <li><%= link_to 'Natasha', "#" %></li>
+          <% @members.each do |member| %>
+            <li><%= link_to member.slack_id, "#" %></li>
+          <% end %>
         </ul>
       </div>
 
       <div class="col-md-12">
         <h2>Tags <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
         <ul>
-          <li><%= link_to 'security', "#" %></li>
-          <li><%= link_to 'ruby', "#" %></li>
-          <li><%= link_to 'angelhack', "#" %></li>
-          <li><%= link_to 'aws', "#" %></li>
-          <li><%= link_to 'kaizendevs', "#" %></li>
+          <% @tags.each do |tag| %>
+            <li><%= link_to tag.name, "#" %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -105,116 +99,6 @@
               </div>
             </div>
           <% end %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="underline"><u>From May 8 to May 14</u></h3>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3 class="data-clip-number">Data Clip #33 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #32 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #31 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #30 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="underline"><u>From May 1 to May 7</u></h3>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #29 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #28 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #27 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #26 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #25 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #24 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail">
-              <h3>Data Clip #23 <%= link_to '<span class="glyphicon glyphicon-star data-clip-started"></span>'.html_safe, "#" %></h3>
-              <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <div class="caption text-right">
-                <p><img src="http://lorempixel.com/40/40/sports/" alt="..."> mardiniii <a href="#" class="btn btn-default" role="button">View</a></p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
