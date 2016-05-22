@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'table_print'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-datepicker-rails'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
 group :production do
   gem 'rails_12factor'

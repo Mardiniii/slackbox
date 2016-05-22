@@ -79,8 +79,8 @@
       <div class="row">
         <div class="col-md-12">
           <% @data_clips.each do |data_clip| %>
-            <div class="col-md-4 col-sm-6">
-              <div class="thumbnail">
+            <div class="col-md-3 col-sm-6">
+              <div class="thumbnail" style="height: 260px">
                 <h4 class="data-clip-number">
                   <%= data_clip.id %>. <%= data_clip.name %>
                   <% if data_clip.starred %>
@@ -93,9 +93,11 @@
                     <% end %>
                   <% end %>
                 </h4>
-                <p class="text-justify"><%= data_clip.data %></p>
-                <div class="caption text-right">
-                  <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..."> <%= data_clip.user.username %> <a href="#" class="btn btn-default" role="button">View</a></p>
+                <div class="height" style="height: 140px; overflow-y: hidden">
+                  <p class="text-center" style="max-height: 200px"><%= markdown(data_clip.data) %></p>
+                </div>
+                <div class="caption text-righ">
+                  <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..." style="border-radius: 100%"> <%= data_clip.user.username %></p>
                 </div>
               </div>
             </div>
