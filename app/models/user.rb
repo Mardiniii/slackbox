@@ -13,14 +13,13 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  slack_id               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  team_id                :integer
 #  provider               :string
 #  uid                    :string
 #  username               :string
 #  image                  :string
-#  team_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -29,8 +28,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :omniauthable,
          omniauth_providers: [:slack]
+
+  has_many :data_clips
 
   def self.from_omniauth(auth)
     where(uid: auth.uid).first_or_create do |user|

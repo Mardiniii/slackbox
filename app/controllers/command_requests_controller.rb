@@ -3,7 +3,6 @@ class CommandRequestsController < ApplicationController
 
   def create
     command_request = CommandRequest.new command_request_params
-    puts command_request.to_yaml
     render json: command_request.response, status: :ok
   end
 
