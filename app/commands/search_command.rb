@@ -39,11 +39,13 @@ class SearchCommand < Command
     parsed_data = parse_data
     value = parsed_data[:value]
     tags = parsed_data[:tags]
+    search_text = command_request.text.match(/^search (.*)$/m).captures.first
     data_clips = command_request.team.data_clips.search({name: value, data: value, tags: tags}).limit(5)
     return_string = "Look at the #{data_clips.count} most relevant #{'result'.pluralize(data_clips.count)} :mag::\n"
     data_clips.each do |data_clip|
       return_string << "*#{data_clip.name}*: #{data_clip.data}\n"
     end
+    return_string << "\nFollow this awesome url :metal:: #{Rails.application.routes.url_helpers.panel_url(q: search_text)}"
     error_message = "Sometimes you can't find what you except, hopefully I will always be here for you :rainbow:. Try another query."
     data_clips.count > 0 ? return_string : error_message
   end
