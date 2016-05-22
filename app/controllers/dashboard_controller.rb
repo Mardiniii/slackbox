@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @data_clip = DataClip.find(params[:id])
+    @data_clip = current_user.team.data_clips.find(params[:id])
   end
 
 end
