@@ -14,7 +14,7 @@
         <h2>People <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
         <ul>
           <% @members.each do |member| %>
-            <li><%= link_to member.slack_id, "#" %></li>
+            <li><%= link_to member.username, "#" %></li>
           <% end %>
         </ul>
       </div>
