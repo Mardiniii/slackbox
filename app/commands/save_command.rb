@@ -22,7 +22,7 @@ class SaveCommand < Command
   end
 
   def valid?
-    !!command_request.text.match(/^save +(\w+) (.*)$/)
+    !!command_request.text.match(/^save +(\w+) (.*)$/m)
   end
 
   def parse_data
