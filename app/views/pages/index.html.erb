@@ -1,10 +1,10 @@
-<!-- <div class="fullscreen-bg">
+<div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.webm" type="video/webm">
-        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.mp4" type="video/mp4">
-        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.ogv" type="video/ogg">
+        <source src="http://infront.com.co/videos/slackbox.webm" type="video/webm">
+        <source src="http://infront.com.co/videos/slackbox.mp4" type="video/mp4">
+        <source src="http://infront.com.co/videos/slackbox.ogv" type="video/ogg">
     </video>
-</div> -->
+</div>
 <nav class="home-nav">
   <ul class="list-inline">
     <% if user_signed_in? %>
@@ -25,13 +25,13 @@
     <p>Save on slack dead simple</p>
   </div>
 </section>
-<section style="background:white;">
+<section style="background:white; padding-top:50px;">
     <div class="container">
-      <div class="row p-b-2">
+      <div class="row">
         <h3 class="text-center">Why slackBox?</h3>
         <p class="text-center gray"></p>
       </div>
-      <div class="row p-b-2">
+      <div class="row">
         <div class="col-md-4">
           <%= image_tag 'feature-1.png', class: 'img-responsive p-b-2' %>
           <p class="text-center gray">Integrate, store and share.</p>
@@ -45,34 +45,102 @@
           <p class="text-center gray">Your team's data clips neatly organized and forever safe with you</p>
         </div>
       </div>
-      <div class="row">
-        <!-- <hr> -->
-        <div class="signup-box">
-
-
-        <section class="form-request">
-          <div class="container">
-            <div class="col-lg-12">
-              <h3 class="text-center form-title">Want to try slackBox with your team?</h3>
-            </div>
-          </div>
-          <div class="container">
-            <form id="email-form" class="col-sm-6 col-sm-offset-3">
-              <div class="input-group" style="width:100%;text-align:center;margin:0 auto;">
-                <input name ="email" id="email" class="form-control input-lg" title="Please enter your email." placeholder="Enter your email" type="email" required="required">
-                <span class="input-group-btn"><button class="btn btn-form btn-lg btn-primary" type="submit">Yes i do</button></span>
-              </div>
-            </form>
-          </div>
-        </section>
-
-
-        </div>
+    </div>
+</section>
+<div style="background:white;">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2"><hr></div>
+  </div>
+</div>
+<section class="commands">
+  <div class="row p-b-2">
+    <h3 class="text-center">SlackBox commands:</h3>
+    <p class="text-center gray">SlackBox is a Slack slash command with the following interface:</p>
+  </div>
+  <div class="container" style="background:#F8F8F8; padding:25px;">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Save new texts into a data clip</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="color">/slackbox save [string]</h4>
+        <p>The string may have tags (#myTag) to organize the information. Also a link where it has been saved to be edited or added.</p>
+      </div>
+      <div class="col-md-4">
+        <p>i.e. /slackbox save AKIAINN7EXAMPLE  #AccessKeyID #AWS</p>
+        <%= image_tag 'command-1', class:'img-responsive' %>
       </div>
     </div>
+    <div class="row"><hr></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Search for clips</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="color">/slackbox search [strings or #tags]</h4>
+        <p>Return the 3 closest matches and show a link to the dashboard with the results</p>
+      </div>
+      <div class="col-md-4">
+        <p>i.e. /slackbox search #api_key</p>
+        <%= image_tag 'command-2', class:'img-responsive' %>
+      </div>
+    </div>
+    <div class="row"><hr></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Star clips</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="color">/slackbox star [string]</h4>
+        <p>Set a star to prioritize any data clip</p>
+      </div>
+      <div class="col-md-4">
+        <p>i.e. /slackbox star admin_password 12345678 #password #secret</p>
+        <%= image_tag 'command-1', class:'img-responsive' %>
+      </div>
+    </div>
+    <div class="row"><hr></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Search starred data clips</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="color">/slackbox starred [string]</h4>
+        <p>Return the 3 closest matches with star and show a link to the dashboard with the results</p>
 
+      </div>
+      <div class="col-md-4">
+        <p>i.e. /slackbox starred #password</p>
+        <%= image_tag 'command-4', class:'img-responsive' %>
+      </div>
+    </div>
+  </div>
 </section>
 
+<div class="container">
+  <div class="signup-box" style="padding-top:35px;">
+
+
+    <section class="form-request">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="text-center form-title">Want to try slackBox with your team?</h3>
+        </div>
+      </div>
+      <div class="row">
+        <form id="email-form" class="col-sm-6 col-sm-offset-3">
+          <div class="input-group" style="width:100%;text-align:center;margin:0 auto;">
+            <input name ="email" id="email" class="form-control input-lg" title="Please enter your email." placeholder="Enter your email" type="email" required="required">
+            <span class="input-group-btn"><button class="btn btn-form btn-lg btn-primary" type="submit">Yes i do</button></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>
+<br>
+<br>
 <footer>
    <div class="container">
      <div class="row">
@@ -84,7 +152,7 @@
      </div>
    </div>
  </footer>
-
+</div>
 <script>
   $(function() {
     $('#email-form').on('submit',function(e){
