@@ -15,4 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require angular
+//= require underscore
 //= require_tree .

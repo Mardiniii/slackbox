@@ -1,110 +1,88 @@
 <%= render 'layouts/navbar' %>
-<div class="container-fluid">
+<div id="dashboard" class="container-fluid" ng-controller="DashboardController">
+  <div ng-init="channels = <%= @channels.to_json %>"></div>
+  <div ng-init="users = <%= @users.to_json %>"></div>
+  <div ng-init="tags = <%= @tags.to_json %>"></div>
+
   <div class="row">
     <div class="col-md-2 col-sm-3 filter-options-box-1">
       <div class="col-md-12">
-        <h2>Channels <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
+        <h2>Channels</h2>
         <ul>
-          <% @channels.each do |channel| %>
-            <li><%= link_to channel.name, "#" %></li>
-          <% end %>
+          <li ng-repeat="channel in channels">
+            <a href="#" ng-click="setChannel(channel)">{{channel.name}}</a>
+          </li>
         </ul>
       </div>
 
       <div class="col-md-12">
-        <h2>People <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
+        <h2>People</h2>
         <ul>
-          <% @members.each do |member| %>
-            <li><%= link_to member.username, "#" %></li>
-          <% end %>
+          <li ng-repeat="user in users">
+            <a href="#" ng-click="setUser(user)">{{user.username}}</a>
+          </li>
         </ul>
       </div>
 
       <div class="col-md-12">
-        <h2>Tags <%= link_to '<span class="glyphicon glyphicon-plus-sign plus-icon"></span>'.html_safe, "#" %></h2>
+        <h2>Tags</h2>
         <ul>
-          <% @tags.each do |tag| %>
-            <li><%= link_to tag.name, "#" %></li>
-          <% end %>
+          <li ng-repeat="tag in tags">
+            <a href="#" ng-click="addTag(tag.name)">{{tag.name}}</a>
+          </li>
         </ul>
-      </div>
-    </div>
-
-    <div class="col-xs-12 filter-options-box-2">
-
-      <div class="col-xs-12 form-group">
-        <label for="exampleInputEmail1">Channels</label>
-        <select class="form-control">
-          <option value="Channel 1" class="form-control">Channel 1</option>
-          <option value="Channel 2" class="form-control">Channel 2</option>
-          <option value="Channel 3" class="form-control">Channel 3</option>
-          <option value="Channel 4" class="form-control">Channel 4</option>
-          <option value="Channel 5" class="form-control">Channel 5</option>
-        </select>
-      </div>
-
-      <div class="col-xs-12 form-group">
-        <label for="exampleInputEmail1">Tags</label>
-        <select class="form-control">
-          <option value="Tag 1" class="form-control">Tag 1</option>
-          <option value="Tag 2" class="form-control">Tag 2</option>
-          <option value="Tag 3" class="form-control">Tag 3</option>
-          <option value="Tag 4" class="form-control">Tag 4</option>
-          <option value="Tag 5" class="form-control">Tag 5</option>
-        </select>
-      </div>
-
-
-      <div class="col-xs-12 form-group">
-        <label for="exampleInputEmail1">People</label>
-        <select class="form-control">
-          <option value="People 1" class="form-control">People 1</option>
-          <option value="People 2" class="form-control">People 2</option>
-          <option value="People 3" class="form-control">People 3</option>
-          <option value="People 4" class="form-control">People 4</option>
-          <option value="People 5" class="form-control">People 5</option>
-        </select>
-      </div>
-
-      <div class="col-xs-6 col-xs-offset-3 form-group">
-        <button type="submit" class="form-control btn-success">Search</button>
       </div>
     </div>
 
     <div class="col-md-10 col-sm-9 col-xs-12 text-left">
+
+
+      <div class="col-xs-12 filters-container">
+
+        <span ng-if="filter.channel" class="label label-success">
+          channel: {{filter.channel.name}}
+          <i class="glyphicon glyphicon-remove" ng-click="clearChannel()"></i>
+        </span>
+
+        <span ng-if="filter.user" class="label label-info">
+          user: {{filter.user.username}}
+          <i class="glyphicon glyphicon-remove" ng-click="clearUser()"></i>
+        </span>
+
+        <span ng-repeat="tag in filter.tags" class="label label-warning">
+          tag: {{tag}}
+          <i class="glyphicon glyphicon-remove" ng-click="removeTag(tag)"></i>
+        </span>
+
+      </div>
+
       <div class="col-md-12 col-xs-12 order-options-container">
         <h1 id="team-name"><%= @team.name %></h1>
-        <span class="order-options">Filter: <%= link_to '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'.html_safe, "#" %></span>
+        <!--<span class="order-options">Filter: <%= link_to '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'.html_safe, "#" %></span>-->
         <!-- <span class="order-options">View: <%#= link_to '<span class="glyphicon glyphicon-th" aria-hidden="true"></span>  <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>'.html_safe, "#" %></span>  -->
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" ng-init="dataClips = <%= @data_clips.to_json %>">
           <% @data_clips.each do |data_clip| %>
-          <div class="pointer">
-            <%= link_to '',dashboard_path(data_clip), remote: true, class: "modal-btn data-clip-#{data_clip.id}"%>
-            <div class="col-md-3 col-sm-6 data-clip" data-id="<%= data_clip.id %>">
-              <div class="thumbnail" style="height: 260px">
-                <h4 class="data-clip-number">
-                  <%= data_clip.id %>. <%= data_clip.name %>
-                  <% if data_clip.starred %>
-                  <%= link_to "#" do %>
-                  <span class="glyphicon glyphicon-star data-clip-started"></span>
-                  <% end %>
-                  <% else %>
-                  <%= link_to "#" do %>
-                  <span class="glyphicon glyphicon-star-empty data-clip-started"></span>
-                  <% end %>
-                  <% end %>
-                </h4>
-                <div class="height" style="height: 140px; overflow-y: hidden">
-                  <p class="text-center" style="max-height: 200px"><%= markdown(data_clip.data) %></p>
-                </div>
-                <div class="caption text-righ">
-                  <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..." style="border-radius: 100%"> <%= data_clip.user.username %></p>
+            <div class="pointer" ng-show="isDataClipVisible(<%= data_clip.id %>)">
+              <%= link_to '',dashboard_path(data_clip), remote: true, class: "modal-btn data-clip-#{data_clip.id}"%>
+              <div class="col-md-3 col-sm-6 data-clip" data-id="<%= data_clip.id %>">
+                <div class="thumbnail" style="height: 260px">
+                  <h4 class="data-clip-number">
+                    <%= data_clip.id %>. <%= data_clip.name %>
+                    <% if data_clip.starred %>
+                      <span class="glyphicon glyphicon-star data-clip-started text-primary"></span>
+                    <% end %>
+                  </h4>
+                  <div class="height" style="height: 140px; overflow-y: hidden">
+                    <p class="text-center" style="max-height: 200px"><%= markdown(data_clip.data) %></p>
+                  </div>
+                  <div class="caption text-righ">
+                    <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..." style="border-radius: 100%"> <%= data_clip.user.username %></p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
           <% end %>
         </div>
@@ -112,6 +90,9 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  angular.bootstrap(document.getElementById('dashboard'), ['DashboardApp']);
+</script>
 <style>
 @media (max-width: 768px) {
   .filter-options-box-1 {
@@ -122,6 +103,9 @@
 @media (min-width: 768px) {
   .filter-options-box-2 {
     display: none;
+  }
+  .filters-container span {
+    margin-right: 15px;
   }
 }
 </style>

@@ -5,9 +5,13 @@ class DashboardController < ApplicationController
     @user = current_user
     @team = @user.team
     @channels = @team.channels
-    @members = @team.users
+    @users = @team.users
     @tags = @team.tags
     @data_clips = @team.data_clips
+    puts '*********************'
+    puts params[:channels]
+    puts params[:channels].class
+    puts '*********************'
   end
 
   def show

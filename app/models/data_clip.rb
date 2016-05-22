@@ -34,4 +34,12 @@ class DataClip < ActiveRecord::Base
     data_clips = data_clips.filter_by_name_or_data(params[:name]) if params[:name]
     data_clips
   end
+
+  def tag_list
+    tags.pluck(:name).uniq
+  end
+
+  def as_json(opts={})
+    super(opts).merge(tags: tag_list)
+  end
 end
