@@ -7,7 +7,11 @@
 </div> -->
 <nav class="home-nav">
   <ul class="list-inline">
-    <li><%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack),class:'button' %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Go to dashboard", panel_path, class:'button' %></li>
+    <% else %>
+      <li><%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack),class:'button' %></li>
+    <% end %>
   </ul>
 </nav>
 <section class="hero">
@@ -34,7 +38,7 @@
         </div>
         <div class="col-md-4">
           <%= image_tag 'feature-2', class: 'img-responsive p-b-2' %>
-          <p class="text-center gray">Time is money, just focus on been more productive.</p>
+          <p class="text-center gray">Time is money, just focus on being more productive.</p>
         </div>
         <div class="col-md-4">
           <%= image_tag 'feature-3', class: 'img-responsive p-b-2' %>
