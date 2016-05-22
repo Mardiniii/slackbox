@@ -7,11 +7,7 @@ class DashboardController < ApplicationController
     @channels = @team.channels
     @users = @team.users
     @tags = @team.tags
-    @data_clips = @team.data_clips
-    puts '*********************'
-    puts params[:channels]
-    puts params[:channels].class
-    puts '*********************'
+    @data_clips = @team.data_clips.search(params[:q])
   end
 
   def show

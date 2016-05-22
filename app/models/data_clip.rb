@@ -30,9 +30,20 @@ class DataClip < ActiveRecord::Base
   scope :starred, lambda { where(starred: true) }
 
   def self.search(params = {})
-    data_clips = params[:tags].count > 0 ? all.joins(:tags).where(:"tags.name" => params[:tags]) : all
-    data_clips = data_clips.filter_by_name_or_data(params[:name]) if params[:name]
-    data_clips
+    params = parse_data(params) if params
+    if params && params[:tags]
+      data_clips = params[:tags].count > 0 ? all.joins(:tags).where(:"tags.name" => params[:tags]) : all
+      data_clips = data_clips.filter_by_name_or_data(params[:name]) if params[:name]
+      data_clips
+    else
+      all
+    end
+  end
+
+  def self.parse_data(params = {})
+    value = params.gsub(/#\w+/,'')
+    tags = params.scan(/#\w+/).uniq
+    { name: value, tags: tags }
   end
 
   def tag_list
