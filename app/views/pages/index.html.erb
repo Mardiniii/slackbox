@@ -1,42 +1,44 @@
-<div class="fullscreen-bg">
+<!-- <div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="video/big_buck_bunny.webm" type="video/webm">
-        <source src="video/big_buck_bunny.mp4" type="video/mp4">
-        <source src="video/big_buck_bunny.ogv" type="video/ogg">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.webm" type="video/webm">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.mp4" type="video/mp4">
+        <source src="http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny.ogv" type="video/ogg">
     </video>
-</div>
+</div> -->
 <nav class="home-nav">
   <ul class="list-inline">
-    <!-- <li><a href="">How it works</a></li> -->
-    <!-- <li><a class='button' href="">login</a></li> -->
     <li><%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack),class:'button' %></li>
   </ul>
 </nav>
 <section class="hero">
+  <%= image_tag 'rectangle', class:'rectangle' %>
+  <%= image_tag 'points', class:'points' %>
+  <%= image_tag 'line-green', class:'line-green' %>
+  <%= image_tag 'line-blue', class:'line-blue' %>
+
   <div>
     <%= image_tag 'logo?v=0.2', class:'logo' %>
-    <p>Finally, a fun and rewarding way to recognize others. It's time to start celebrating hitting goals.</p>
+    <p>Save on slack dead simple</p>
   </div>
 </section>
-<!-- <hr> -->
-<section>
+<section style="background:white;">
     <div class="container">
       <div class="row p-b-2">
-        <h3 class="text-center">How it Works</h3>
-        <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+        <h3 class="text-center">Why slackBox?</h3>
+        <p class="text-center gray"></p>
       </div>
       <div class="row p-b-2">
         <div class="col-md-4">
-          <%= image_tag 'feature-1', class: 'img-responsive' %>
-          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+          <%= image_tag 'feature-1', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Integrate, store and share.</p>
         </div>
         <div class="col-md-4">
-          <%= image_tag 'feature-1', class: 'img-responsive' %>
-          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+          <%= image_tag 'feature-2', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Time is money, just focus on been more productive.</p>
         </div>
         <div class="col-md-4">
-          <%= image_tag 'feature-1', class: 'img-responsive' %>
-          <p class="text-center gray">Connect and load customer data into a data warehouse in minutes.</p>
+          <%= image_tag 'feature-3', class: 'img-responsive p-b-2' %>
+          <p class="text-center gray">Your team's data clips neatly organized and forever safe with you</p>
         </div>
       </div>
       <div class="row">
@@ -91,12 +93,12 @@
         success: function(data) {
           console.log(data);
           $('#email-form').slideUp('slow',function(){
-            $('.form-title').text('¡Gracias por confiar en nosotros!');
+            $('.form-title').text("Awesome, we'll be in touch very soon!");
           });
         },
         error: function(err) {
           $('#email-form').slideUp('slow',function(){
-            $('.form-title').text(':/ Parece que hubo un error, intenta por favor más tarde.');
+            $('.form-title').text(':/ Bummer, something went wrong, please try again later.');
           });
         }
       });

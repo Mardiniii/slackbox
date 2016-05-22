@@ -22,16 +22,20 @@
       padding: 10px;
       margin:0 0 0 5px;
       border-radius:5px;
+      // background: rgba(0,0,0,0.25);
 
     }
   }
 }
 .hero{
+  position: relative;
+  overflow: hidden;
   text-align: center;
   height: 100%;
   width: 100%;
   min-height: 450px;
-  background: #F6F6F6;
+  max-resolution: 100%;
+  background: rgba(0,0,0,0.05);
   display: flex;
   justify-content: center;
   display: flex;
@@ -46,15 +50,47 @@
   }
 
   p{
-    color:#777;
+    color:#111;
     font-size: 24px;
-    padding: 0 15px;
+    padding: 10px 20px;
     margin-top:30px;
     font-weight: 300;
     max-width: 550px;
+    background: rgba(34,200,160,0.75)
   }
   .logo{
     width:150px;
     height: 135px;
   }
+}
+
+.rectangle{
+  top: 30%;
+  position: absolute;
+  left: 0;
+}
+
+.points{
+  overflow: hidden;
+  position: absolute;
+  right: 15px;
+  top:50%;
+  margin-top: -50px;
+  width: 100px;
+}
+.line-green{
+  overflow: hidden;
+  position: absolute;
+  left: 16%;
+  top:10%;
+  margin-top: -20px;
+  width: 60px;
+}
+.line-blue{
+  overflow: hidden;
+  position: absolute;
+  left: 22%;
+  top:70%;
+  margin-top: -20px;
+  width: 40px;
 }
