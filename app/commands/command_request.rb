@@ -17,7 +17,7 @@ class CommandRequest
   end
 
   def sub_command
-    text.split(' ').first
+    text.match(/(\w+).*$/).try(:captures).try(:first)
   end
 
   def prepare

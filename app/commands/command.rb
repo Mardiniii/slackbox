@@ -17,6 +17,17 @@ class Command
     self.command_request = command_request
   end
 
+  def invalid_arguments_response
+    {
+      text: [
+        'You made a little mistake :ok_hand: but we still love you :heart:. Give this a shot:',
+        self.class.usage,
+        'For example:',
+        self.class.example
+      ].join("\n")
+    }
+  end
+
   #TODO: Autoload commands
   register(HelpCommand,:help)
   register(SaveCommand,:save)

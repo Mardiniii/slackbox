@@ -1,12 +1,28 @@
 class SaveCommand < Command
 
-  def response
-    save
-    { text: 'Your data clip has been saved' }
+  def self.description
+    "Save data in your team's slackbox. The data can contain text, URLs and tags."
   end
 
-  def self.description
-    "Save data in your team's slackbox. The data can be text or some URL."
+  def self.usage
+    '`/slackbox save [name] [some text that can contain text, URLs and tags]`'
+  end
+
+  def self.example
+    '`/slackbox save admin_password 12345678 #password #secret`'
+  end
+
+  def response
+    if valid?
+      save
+      { text: 'Your data clip has been saved' }
+    else
+      invalid_arguments_response
+    end
+  end
+
+  def valid?
+    !!command_request.text.match(/^save +(\w+) (.*)$/)
   end
 
   def parse_data
@@ -14,7 +30,8 @@ class SaveCommand < Command
       name, value = match.captures
       { name: name, value: value }
     else
-      #TODO the command is not valid
+      #TODO: create an error for invalid arguments
+      raise new Error('Invalid data')
     end
   end
 
