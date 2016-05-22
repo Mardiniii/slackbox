@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.image = auth.info.image # assuming the user model has an image
       user.username = auth.info.user # assuming the user model has a username
-      associate_or_create_team(auth, user)
     end
   end
 
