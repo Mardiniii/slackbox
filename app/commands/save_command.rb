@@ -26,7 +26,7 @@ class SaveCommand < Command
   end
 
   def parse_data
-    if match = command_request.text.match(/^save +(\w+) (.*)$/)
+    if match = command_request.text.match(/^save +(\w+) (.*)$/m)
       name, value = match.captures
       { name: name, value: value }
     else
@@ -47,6 +47,7 @@ class SaveCommand < Command
       has_urls: value.match(URI::regexp(%w(http https))),
       user_id: command_request.user.id,
       channel_id: command_request.channel.id,
+      team_id: command_request.team.id,
       slack_response: command_request.to_hash,
     )
     tags = value.scan(/#\w+/).uniq

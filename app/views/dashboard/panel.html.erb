@@ -81,7 +81,8 @@
           <% @data_clips.each do |data_clip| %>
             <div class="col-md-4 col-sm-6">
               <div class="thumbnail">
-                <h3 class="data-clip-number">Data Clip #<%= data_clip.id %>
+                <h4 class="data-clip-number">
+                  <%= data_clip.id %>. <%= data_clip.name %>
                   <% if data_clip.starred %>
                     <%= link_to "#" do %>
                       <span class="glyphicon glyphicon-star data-clip-started"></span>
@@ -91,10 +92,10 @@
                       <span class="glyphicon glyphicon-star-empty data-clip-started"></span>
                     <% end %>
                   <% end %>
-                </h3>
+                </h4>
                 <p class="text-justify"><%= data_clip.data %></p>
                 <div class="caption text-right">
-                  <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..."> <%= data_clip.user.slack_id %> <a href="#" class="btn btn-default" role="button">View</a></p>
+                  <p><img src="<%= data_clip.user.image %>" width="40" height="40" alt="..."> <%= data_clip.user.username %> <a href="#" class="btn btn-default" role="button">View</a></p>
                 </div>
               </div>
             </div>
