@@ -1,7 +1,7 @@
 class SearchCommand < Command
 
   def self.description
-    "Search data in your team's slackbox. The data can contain text o #tags."
+    "Search data in your team's slackbox. The data can contain text or #tags."
   end
 
   def self.usage
