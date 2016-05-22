@@ -1,0 +1,19 @@
+.home-nav{
+  position: absolute;
+  right: 25px;
+  border: 1px solid red;
+}
+.hero{
+  height: 100%;
+  width: 100%;
+  background:#FDFDFD;
+  display: flex;
+  justify-content: center;
+  // background-color: #333333;
+  display: flex;
+  align-items: center;
+  .logo{
+    width:150px;
+    height: 135px;
+  }
+}

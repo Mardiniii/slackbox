@@ -1,12 +1,6 @@
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <p>
-    <strong>team name:</strong> <%= @team.name %> <br>
-    <strong>team domain:</strong> <%= @team.domain %> <br>
-    <strong>username:</strong> <%= @user.username %> <br>
-    <strong>email:</strong> <%= @user.email %> <br>
-    <strong>image:</strong> <img src="<%= @user.image %>" alt="" /> <br>
-  </p>
-<% else %>
-  <%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack) %>
-<% end %>
+<nav class="home-nav">
+  <ul><a href="">How it works</a></ul>
+</nav>
+<section class="hero">
+  <%= image_tag 'logo?v=0.2', class:'logo' %>
+</section>
