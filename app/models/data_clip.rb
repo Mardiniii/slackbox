@@ -27,6 +27,8 @@ class DataClip < ActiveRecord::Base
     where("lower(data_clips.name) LIKE ? OR lower(data_clips.data) LIKE ?", "%#{keyword.downcase}%", "%#{keyword.downcase}%" )
   }
 
+  scope :starred, lambda { where(starred: true) }
+
   def self.search(params = {})
     data_clips = params[:tags].count > 0 ? all.joins(:tags).where(:"tags.name" => params[:tags]) : all
     data_clips = data_clips.filter_by_name_or_data(params[:name]) if params[:name]
