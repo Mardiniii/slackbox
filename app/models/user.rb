@@ -33,11 +33,12 @@ class User < ActiveRecord::Base
          omniauth_providers: [:slack]
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.image = auth.info.image # assuming the user model has an image
       user.username = auth.info.user # assuming the user model has a username
+      user.provider = auth.provider
     end
   end
 
