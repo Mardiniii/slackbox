@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 
   def panel
     @user = current_user
-    @data_clips = @user.data_clips
+    @team = @user.team
+    @data_clips = @team.data_clips
   end
 end
