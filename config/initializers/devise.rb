@@ -241,9 +241,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :slack, ENV['slack_client'], ENV['slack_secret'], scope: 'identify,read,post'
+  config.omniauth :slack, ENV['slack_client'], ENV['slack_secret'], scope: 'identify,channels:write,files:read,files:write:user,groups:write,im:write,mpim:write,pins:write,users:read'
 
-  # ==> Warden configuration
+ # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
