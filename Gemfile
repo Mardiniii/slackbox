@@ -20,6 +20,7 @@ gem 'table_print'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-datepicker-rails'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem "react_on_rails", "~> 5"
 gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'sidekiq'
