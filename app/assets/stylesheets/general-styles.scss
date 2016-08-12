@@ -133,7 +133,7 @@ footer a{
 
 @media (max-width: 767px) {
   .fullscreen-bg {
-    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    background: image-url('video-frame.png') center center / cover no-repeat;
   }
 
   .fullscreen-bg__video {
