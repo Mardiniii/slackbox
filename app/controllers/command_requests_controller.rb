@@ -16,7 +16,7 @@ class CommandRequestsController < ApplicationController
       client_id: ENV['slack_client'],
       client_secret: ENV['slack_secret'],
       code: params[:code],
-      redirect_uri: root_url
+      redirect_uri: auth_grant_command_requests_url
     }
     uri.query = URI.encode_www_form(uri_params)
 
@@ -30,7 +30,7 @@ class CommandRequestsController < ApplicationController
       puts res.body
     end
     puts "**************************"
-    render json: { }, status: :ok
+    redirect_to root_path
   end
 
   private
