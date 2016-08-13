@@ -6,7 +6,7 @@ class CommandRequestsController < ApplicationController
     command_request = CommandRequest.new command_request_params
     puts "********************"
     puts params
-    if command_request.token == Rails.env['slack_command_token']
+    if command_request.token == ENV['slack_command_token']
       puts "Success"
       render json: command_request.response, status: :ok
     else
