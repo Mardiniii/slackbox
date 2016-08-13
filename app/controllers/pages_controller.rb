@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < WebController
   def index
     if user_signed_in?
       @user = current_user

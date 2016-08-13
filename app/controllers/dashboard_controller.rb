@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class DashboardController < WebController
   before_action :authenticate_user!
 
   def panel
