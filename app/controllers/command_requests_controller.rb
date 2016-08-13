@@ -1,12 +1,13 @@
 class CommandRequestsController < ApplicationController
   protect_from_forgery with: :null_session
+  respond_to :json
 
   def create
     command_request = CommandRequest.new command_request_params
     if command_request.token == Rails.env['slack_command_token']
       render json: command_request.response, status: :ok
     else
-      render status: :unpermitted
+      head :unpermitted
     end
   end
 
