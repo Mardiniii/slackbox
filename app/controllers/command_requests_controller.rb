@@ -16,7 +16,7 @@ class CommandRequestsController < ApplicationController
       client_id: ENV['slack_client'],
       client_secret: ENV['slack_secret'],
       code: params[:code],
-      redirect_uri: root_path
+      redirect_uri: root_url
     }
     uri.query = URI.encode_www_form(uri_params)
 
