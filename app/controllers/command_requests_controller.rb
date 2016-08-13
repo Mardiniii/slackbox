@@ -12,13 +12,13 @@ class CommandRequestsController < ApplicationController
 
   def auth_grant
     uri = URI('https://slack.com/api/oauth.access')
-    params = {
+    uri_params = {
       client_id: ENV['slack_client'],
       client_secret: ENV['slack_secret'],
       code: params[:code],
       redirect_uri: root_path
     }
-    uri.query = URI.encode_www_form(params)
+    uri.query = URI.encode_www_form(uri_params)
 
     res = Net::HTTP.get_response(uri)
     puts "**************************"
