@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
   root 'pages#index'
   devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -15,7 +17,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      # We are going to list our resources here
+      resources :sessions, :only => [:create, :destroy]
+      get 'data_clip/:id' => 'dashboard#data_clip'
     end
   end
 end
