@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :sessions, :only => [:create, :destroy]
       get 'data_clip/:id' => 'dashboard#data_clip'
+      get 'user_panel' => 'dashboard#panel'
     end
   end
 end
