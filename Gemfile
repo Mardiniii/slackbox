@@ -41,3 +41,10 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
+group :test do
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem "factory_girl_rails"
+  gem 'ffaker'
+  gem "shoulda-matchers"
+end
