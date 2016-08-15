@@ -24,6 +24,9 @@ gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'sidekiq'
 
+# API gems
+gem 'active_model_serializers'
+
 group :production do
   gem 'rails_12factor'
 end
