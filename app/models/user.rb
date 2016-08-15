@@ -20,6 +20,7 @@
 #  uid                    :string
 #  username               :string
 #  image                  :string
+#  auth_token             :string
 #
 
 class User < ActiveRecord::Base
