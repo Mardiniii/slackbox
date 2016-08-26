@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get :auth_grant
     end
   end
-  get 'hello_world', to: 'hello_world#index'
+  get 'new_panel', to: 'new_panel#index'
   root 'pages#index'
   devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'panel' => 'dashboard#panel'

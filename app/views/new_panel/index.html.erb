@@ -1,0 +1,89 @@
+<%= render partial: 'layouts/navbar' %>
+<div id="dashboard" class="container-fluid" ng-controller="DashboardController">
+
+  <div class="row">
+    <div class="col-md-2 col-sm-3 filter-options-box-1">
+      <div class="col-md-12">
+        <h2>Channels</h2>
+        <ul>
+          <li>
+            <a href="#">Channel</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12">
+        <h2>People</h2>
+        <ul>
+          <li>
+            <a href="#">User</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12">
+        <h2>Tags</h2>
+        <ul>
+          <li ng-repeat="tag in tags">
+            <a href="#">{{tag.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-10 col-sm-9 col-xs-12 text-left">
+
+
+      <div class="col-xs-12 filters-container">
+
+        <span ng-if="filter.channel" class="label label-success">
+          channel: Channel test
+          <i class="glyphicon glyphicon-remove" ng-click="clearChannel()"></i>
+        </span>
+
+        <span ng-if="filter.user" class="label label-info">
+          user: User test
+          <i class="glyphicon glyphicon-remove" ng-click="clearUser()"></i>
+        </span>
+
+        <span ng-repeat="tag in filter.tags" class="label label-warning">
+          tag: Tag
+          <i class="glyphicon glyphicon-remove" ng-click="removeTag(tag)"></i>
+        </span>
+
+      </div>
+
+      <div class="col-md-12 col-xs-12 order-options-container">
+        <h1 id="team-name">Da team</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <% @dataclips.each do |dataclip| %>
+            <%=
+              react_component("DataClipApp", props: dataclip, prerender: false)
+            %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  angular.bootstrap(document.getElementById('dashboard'), ['DashboardApp']);
+</script>
+<style>
+@media (max-width: 768px) {
+  .filter-options-box-1 {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter-options-box-2 {
+    display: none;
+  }
+  .filters-container span {
+    margin-right: 15px;
+  }
+}
+</style>
