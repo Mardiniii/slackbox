@@ -1,5 +1,9 @@
 class SearchCommand < Command
 
+  def self.async?
+    true
+  end
+
   def self.command_regex
     /^search (?<query>.*)$/m
   end

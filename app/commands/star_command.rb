@@ -1,6 +1,10 @@
 class StarCommand < Command
   COMMAND_REGEX = /^star\s+(?<name>.+?)\s*=>\s*(?<value>.+)$/m
 
+  def self.async?
+    true
+  end
+
   def self.description
     "Save starred data in your team's #{Command.integration_name}. The data can contain text, URLs and tags."
   end

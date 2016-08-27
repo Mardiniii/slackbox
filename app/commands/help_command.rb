@@ -1,5 +1,9 @@
 class HelpCommand < Command
 
+  def self.async?
+    false
+  end
+
   def self.description
     'Show the available commands'
   end

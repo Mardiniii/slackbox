@@ -11,9 +11,16 @@ class CommandRequest
     prepare
   end
 
+  def pre_async_response
+    handler.pre_async_response
+  end
+
   def response
-    handler = Command.handler_for_command(sub_command) || Command.handler_for_command(:help)
     handler.new(self).response
+  end
+
+  def handler
+    Command.handler_for_command(sub_command) || Command.handler_for_command(:help)
   end
 
   def sub_command

@@ -1,5 +1,9 @@
 class StarredCommand < SearchCommand
 
+  def self.async?
+    true
+  end
+
   def self.command_regex
     /^starred (?<query>.*)$/m
   end

@@ -6,14 +6,17 @@ class CommandRequestsController < ApplicationController
     command_request = CommandRequest.new command_request_params
     puts "********************"
     puts params
+    puts "********************"
     if command_request.token == ENV['slack_command_token']
-      puts "Success"
-      render json: command_request.response, status: :ok
+      if command_request.handler.async?
+        HandleCommandRequestJob.perform_later command_request_params
+        render json: command_request.pre_async_response, status: :ok
+      else
+        render json: command_request.response, status: :ok
+      end
     else
-      puts "Error"
       render json: {}, status: 401
     end
-    puts "********************"
   end
 
   def auth_grant

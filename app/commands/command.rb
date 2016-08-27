@@ -1,6 +1,16 @@
 class Command
   attr_accessor :command_request
 
+  def self.async?
+    true
+  end
+
+  def self.pre_async_response
+    ''
+    # Can be something like:
+    # { text: "got it :ok_hand:, I'm processing your request..." }
+  end
+
   def self.integration_command_name
     'box'
   end
