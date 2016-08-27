@@ -14,7 +14,20 @@ class HelpCommand < Command
 
 
   def response
-    { text: message }
+    {
+      attachments: Command.command_handlers.map do |command_name,handler|
+        {
+          fallback: "`/#{Command.integration_command_name} #{command_name}`: #{handler.description}",
+          color: "#36a64f",
+          title: "/box #{command_name}",
+          text: [
+            handler.description,
+            "example: #{handler.example}",
+          ].join("\n"),
+          mrkdwn_in: ["text"]
+        }
+      end
+    }
   end
 
   def valid?

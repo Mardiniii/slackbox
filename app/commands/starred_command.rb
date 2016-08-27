@@ -13,7 +13,7 @@ class StarredCommand < SearchCommand
   end
 
   def self.example
-    "`/#{Command.integration_command_name} starred admin_password`"
+    "`/#{Command.integration_command_name} starred admin password`"
   end
 
   def search_url
