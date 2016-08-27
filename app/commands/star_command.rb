@@ -22,14 +22,14 @@ class StarCommand < Command
         response_type: 'in_channel',
         attachments: [
           {
-              fallback: "New starred dataclip created by #{data_clip.user.username}",
-              color: "#36a64f",
-              pretext: "New starred dataclip created by @#{data_clip.user.username}",
-              title: ":star: #{data_clip.name}",
-              text: data_clip.data,
-              footer: "SlashBox",
-              ts: data_clip.created_at.to_time.to_i,
-              mrkdwn_in: ["text"]
+            fallback: "New starred dataclip created by #{data_clip.user.username}",
+            color: "#36a64f",
+            pretext: "New starred dataclip created by @#{data_clip.user.username}",
+            title: ":star: #{data_clip.name}",
+            text: data_clip.data,
+            footer: "SlashBox",
+            ts: data_clip.created_at.to_time.to_i,
+            mrkdwn_in: ["text"]
           },
         ]
       }
