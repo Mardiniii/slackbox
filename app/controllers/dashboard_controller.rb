@@ -7,7 +7,13 @@ class DashboardController < WebController
     @channels = @team.channels
     @users = @team.users
     @tags = @team.tags
-    @data_clips = @team.data_clips.search({ q: params[:q] })
+
+    if params[:starred]
+      @data_clips = @team.data_clips.starred
+    else
+      @data_clips = @team.data_clips
+    end
+    @data_clips = @data_clips.search({ q: params[:q] })
   end
 
   def show
