@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522030809) do
+ActiveRecord::Schema.define(version: 20160827191920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "channels", force: :cascade do |t|
     t.integer  "team_id"
@@ -81,11 +82,11 @@ ActiveRecord::Schema.define(version: 20160522030809) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "team_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "username"
     t.string   "image"
-    t.integer  "team_id"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

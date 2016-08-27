@@ -23,8 +23,15 @@ class DataClip < ActiveRecord::Base
 
   accepts_nested_attributes_for :tags
 
-  scope :filter_by_name_or_data, lambda { |keyword|
-    where("lower(data_clips.name) LIKE ? OR lower(data_clips.data) LIKE ?", "%#{keyword.downcase}%", "%#{keyword.downcase}%" )
+  scope :filter_by_name_or_data, lambda { |search_string|
+
+    search_string = search_string.split.join('%')
+
+    query_string = [:name,:data].map do |col|
+      "LOWER(UNACCENT(#{col})) LIKE LOWER(UNACCENT(:q))"
+    end.join(" OR ")
+    where(query_string,q: "%#{search_string}%")
+
   }
 
   scope :starred, lambda { where(starred: true) }
