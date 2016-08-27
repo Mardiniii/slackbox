@@ -5,7 +5,7 @@ class HelpCommand < Command
   end
 
   def self.usage
-  "'`/#{Command.integration_command_name} help`"
+  "`/#{Command.integration_command_name} help`"
   end
 
   def self.example

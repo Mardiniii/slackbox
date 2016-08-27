@@ -1,16 +1,16 @@
 class SaveCommand < Command
-  COMMAND_REGEX = /^save +(\w+) (.*)$/m
+  COMMAND_REGEX = /^save +(.+)\s*=>\s*(.*)$/m
 
   def self.description
     "Save data in your team's #{Command.integration_name}. The data can contain text, URLs and tags."
   end
 
   def self.usage
-    '`/#{Command.integration_command_name} save [data clip name] [some text that can contain text, URLs and tags]`'
+    "`/#{Command.integration_command_name} save [data clip name] => [some text that can contain text, URLs and tags]`"
   end
 
   def self.example
-    '`/#{Command.integration_command_name} save admin_password 12345678 #password #secret`'
+    "`/#{Command.integration_command_name} save admin password => 12345678 #password #secret`"
   end
 
   def response

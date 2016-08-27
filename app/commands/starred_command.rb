@@ -5,11 +5,11 @@ class StarredCommand < Command
   end
 
   def self.usage
-    '`/#{Command.integration_command_name} starred [text you want to search or tags]`'
+    "`/#{Command.integration_command_name} starred [text you want to search or tags]`"
   end
 
   def self.example
-    '`/#{Command.integration_command_name} starred admin_password`'
+    "`/#{Command.integration_command_name} starred admin_password`"
   end
 
   def response
