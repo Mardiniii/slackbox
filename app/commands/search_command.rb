@@ -1,15 +1,15 @@
 class SearchCommand < Command
 
   def self.description
-    "Search data in your team's slackbox. The data can contain text or #tags."
+    "Search data in your team's #{Command.integration_name}. The data can contain text or #tags."
   end
 
   def self.usage
-    '`/slackbox search [text you want to search or tags]`'
+    '`/#{Command.integration_command_name} search [text you want to search or tags]`'
   end
 
   def self.example
-    '`/slackbox search admin_password`'
+    '`/#{Command.integration_command_name} search admin_password`'
   end
 
   def response

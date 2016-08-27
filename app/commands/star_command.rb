@@ -2,15 +2,15 @@ class StarCommand < Command
   COMMAND_REGEX = /^star +(\w+) (.*)$/m
 
   def self.description
-    "Save starred data in your team's slackbox. The data can contain text, URLs and tags."
+    "Save starred data in your team's #{Command.integration_name}. The data can contain text, URLs and tags."
   end
 
   def self.usage
-    '`/slackbox star [data clip name] [some text that can contain text, URLs and tags]`'
+    '`/#{Command.integration_command_name} star [data clip name] [some text that can contain text, URLs and tags]`'
   end
 
   def self.example
-    '`/slackbox star admin_password 12345678 #password #secret`'
+    '`/#{Command.integration_command_name} star admin_password 12345678 #password #secret`'
   end
 
   def response

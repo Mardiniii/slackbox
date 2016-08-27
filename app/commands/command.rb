@@ -1,6 +1,14 @@
 class Command
   attr_accessor :command_request
 
+  def self.integration_command_name
+    'box'
+  end
+
+  def self.integration_name
+    'SlashBox'
+  end
+
   def self.register(handler_class,command_name)
     Command.command_handlers[command_name] = handler_class
   end

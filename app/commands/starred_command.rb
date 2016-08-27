@@ -1,15 +1,15 @@
 class StarredCommand < Command
 
   def self.description
-    "Search starred data in your team's slackbox. The query can contain text or #tags."
+    "Search starred data in your team's #{Command.integration_name}. The query can contain text or #tags."
   end
 
   def self.usage
-    '`/slackbox starred [text you want to search or tags]`'
+    '`/#{Command.integration_command_name} starred [text you want to search or tags]`'
   end
 
   def self.example
-    '`/slackbox starred admin_password`'
+    '`/#{Command.integration_command_name} starred admin_password`'
   end
 
   def response

@@ -5,7 +5,7 @@ class HelpCommand < Command
   end
 
   def self.usage
-    '`/slackbox help`'
+  "'`/#{Command.integration_command_name} help`"
   end
 
   def self.example
@@ -25,7 +25,7 @@ class HelpCommand < Command
 
     def message
       Command.command_handlers.map do |command_name,handler|
-        "* `/slackbox #{command_name}`: #{handler.description}"
+        "* `/#{Command.integration_command_name} #{command_name}`: #{handler.description}"
       end.join("\n")
     end
 end
