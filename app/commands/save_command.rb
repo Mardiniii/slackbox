@@ -1,5 +1,5 @@
 class SaveCommand < Command
-  COMMAND_REGEX = /^save +(.+)\s*=>\s*(.*)$/m
+  COMMAND_REGEX = /^save\s+(?<name>.+?)\s*=>\s*(?<value>.+)$/m
 
   def self.description
     "Save data in your team's #{Command.integration_name}. The data can contain text, URLs and tags."
@@ -28,8 +28,7 @@ class SaveCommand < Command
 
   def parse_data
     if match = command_request.text.match(COMMAND_REGEX)
-      name, value = match.captures
-      { name: name, value: value }
+      match
     else
       #TODO: create an error for invalid arguments
       raise new Error('Invalid data')

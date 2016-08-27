@@ -1,5 +1,5 @@
 class StarCommand < Command
-  COMMAND_REGEX = /^star +(.+)\s*=>\s*(.*)$/m
+  COMMAND_REGEX = /^star\s+(?<name>.+?)\s*=>\s*(?<value>.+)$/m
 
   def self.description
     "Save starred data in your team's #{Command.integration_name}. The data can contain text, URLs and tags."
@@ -28,8 +28,7 @@ class StarCommand < Command
 
   def parse_data
     if match = command_request.text.match(COMMAND_REGEX)
-      name, value = match.captures
-      { name: name, value: value }
+      match
     else
       #TODO: create an error for invalid arguments
       raise new Error('Invalid data')
