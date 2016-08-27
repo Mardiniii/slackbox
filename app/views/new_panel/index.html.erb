@@ -6,9 +6,11 @@
       <div class="col-md-12">
         <h2>Channels</h2>
         <ul>
-          <li>
-            <a href="#">Channel</a>
-          </li>
+          <% @channels.each do |channel| %>
+            <%=
+            react_component("SideBar", props: channel, prerender: false)
+            %>
+          <% end %>
         </ul>
       </div>
 
@@ -36,25 +38,25 @@
 
       <div class="col-xs-12 filters-container">
 
-        <span ng-if="filter.channel" class="label label-success">
+        <span class="label label-success">
           channel: Channel test
-          <i class="glyphicon glyphicon-remove" ng-click="clearChannel()"></i>
+          <i class="glyphicon glyphicon-remove"></i>
         </span>
 
-        <span ng-if="filter.user" class="label label-info">
+        <span class="label label-info">
           user: User test
-          <i class="glyphicon glyphicon-remove" ng-click="clearUser()"></i>
+          <i class="glyphicon glyphicon-remove"></i>
         </span>
 
-        <span ng-repeat="tag in filter.tags" class="label label-warning">
+        <span class="label label-warning">
           tag: Tag
-          <i class="glyphicon glyphicon-remove" ng-click="removeTag(tag)"></i>
+          <i class="glyphicon glyphicon-remove"></i>
         </span>
 
       </div>
 
       <div class="col-md-12 col-xs-12 order-options-container">
-        <h1 id="team-name">Da team</h1>
+        <h1 id="team-name"><%= @team.name %></h1>
       </div>
       <div class="row">
         <div class="col-md-12">

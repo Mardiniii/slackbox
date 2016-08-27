@@ -1,6 +1,5 @@
 class NewPanelController < ApplicationController
   def index
-    @hello_world_props = { name: "Stranger" }
     @user = current_user
     @team = @user.team
     @channels = @team.channels
