@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.3.1'
 
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -24,6 +24,9 @@ gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'sidekiq'
 
+# API gems
+gem 'active_model_serializers'
+
 group :production do
   gem 'rails_12factor'
 end
@@ -37,4 +40,11 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem "factory_girl_rails"
+  gem 'ffaker'
+  gem "shoulda-matchers"
 end
