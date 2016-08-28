@@ -25,7 +25,7 @@
 
 class User < ActiveRecord::Base
   belongs_to :team
-  has_many :data_clips
+  has_many :data_clips, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
