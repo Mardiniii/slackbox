@@ -1,6 +1,4 @@
 import ReactOnRails from 'react-on-rails';
-import DataClipApp from './DataClipAppClient';
-import SideBar from './SideBarClient';
+import Dashboard from './DashboardClient';
 
-// This is how react_on_rails can see the HelloWorldApp in the browser.
-ReactOnRails.register({ DataClipApp, SideBar });
+ReactOnRails.register({ Dashboard });

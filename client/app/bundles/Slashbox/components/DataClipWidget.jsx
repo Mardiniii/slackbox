@@ -19,7 +19,7 @@ export default class DataClipWidget extends React.Component {
           <div className="thumbnail" style={{height: '260 px'}}>
             <h4 className="data-clip-number">
               { star }
-              1. { name }
+              { name }
             </h4>
             <div className="height" style={{height: '140px', overflowY: 'hidden' }}>
               <p style={{maxHeight: '200px'}}>
