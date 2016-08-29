@@ -9,8 +9,8 @@ class CommandRequestsController < ApplicationController
     puts "********************"
     if command_request.token == ENV['slack_command_token']
       if command_request.handler.async?
-        HandleCommandRequestJob.perform_later command_request_params
         render json: command_request.pre_async_response, status: :ok
+        HandleCommandRequestJob.perform_later command_request_params
       else
         render json: command_request.response, status: :ok
       end
