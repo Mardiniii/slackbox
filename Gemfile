@@ -23,9 +23,9 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'sidekiq'
-gem 'newrelic_rpm'
 
 group :production do
+  gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
 
