@@ -66,11 +66,11 @@
         <h4>Save new texts into a data clip</h4>
       </div>
       <div class="col-md-4">
-        <h4 class="color">/box save [string]</h4>
-        <p>The string may have tags (#myTag) to organize the information. Also a link where it has been saved to be edited or added.</p>
+        <h4 class="color">/box save [dataclip title] => [content with optional tags]</h4>
+        <p>The content may have <strong>#tags</strong> to organize the information.</p>
       </div>
       <div class="col-md-4">
-        <p>i.e. /box save AKIAINN7EXAMPLE  #AccessKeyID #AWS</p>
+        <p>i.e. /box save slashbox landing page => https://www.slashbox.co #links</p>
         <%= image_tag 'command-1.png', class:'img-responsive' %>
       </div>
     </div>
@@ -81,10 +81,10 @@
       </div>
       <div class="col-md-4">
         <h4 class="color">/box search [strings or #tags]</h4>
-        <p>Return the 3 closest matches and show a link to the dashboard with the results</p>
+        <p>Return the 5 closest matches and show a link to the dashboard with the results</p>
       </div>
       <div class="col-md-4">
-        <p>i.e. /box search #api_key</p>
+        <p>i.e. /box search #links</p>
         <%= image_tag 'command-2.png', class:'img-responsive' %>
       </div>
     </div>
@@ -94,12 +94,12 @@
         <h4>Star clips</h4>
       </div>
       <div class="col-md-4">
-        <h4 class="color">/box star [string]</h4>
-        <p>Set a star to prioritize any data clip</p>
+        <h4 class="color">/box star [dataclip title] => [content with optional tags]</h4>
+        <p>Save a dataclip with a star to prioritize it</p>
       </div>
       <div class="col-md-4">
-        <p>i.e. /box star admin_password 12345678 #password #secret</p>
-        <%= image_tag 'command-1.png', class:'img-responsive' %>
+        <p>i.e. /box star api key => asag6agGaasga32taGjawgja45$3tyqaA</p>
+        <%= image_tag 'command-3.png', class:'img-responsive' %>
       </div>
     </div>
     <div class="row"><hr></div>
@@ -108,12 +108,12 @@
         <h4>Search starred data clips</h4>
       </div>
       <div class="col-md-4">
-        <h4 class="color">/box starred [string]</h4>
-        <p>Return the 3 closest matches with star and show a link to the dashboard with the results</p>
+        <h4 class="color">/box starred [string or tags]</h4>
+        <p>Return the 5 closest matches with star and show a link to the dashboard with the results</p>
 
       </div>
       <div class="col-md-4">
-        <p>i.e. /box starred #password</p>
+        <p>i.e. /box starred api key</p>
         <%= image_tag 'command-4.png', class:'img-responsive' %>
       </div>
     </div>
