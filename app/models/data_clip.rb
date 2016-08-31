@@ -27,7 +27,7 @@ class DataClip < ActiveRecord::Base
 
     search_string = search_string.split.join('%')
 
-    query_string = [:name,:data].map do |col|
+    query_string = ["data_clips.name","data_clips.data"].map do |col|
       "LOWER(UNACCENT(#{col})) LIKE LOWER(UNACCENT(:q))"
     end.join(" OR ")
     where(query_string,q: "%#{search_string}%")
