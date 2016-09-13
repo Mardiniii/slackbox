@@ -7,6 +7,8 @@ export default class DataClipWidget extends React.Component {
     const { name } = this.props;
     const { data } = this.props;
     const { starred } = this.props;
+    const { userImg } = this.props;
+    const { userName } = this.props;
     var star
     if (starred) {
       star = <span className="glyphicon glyphicon-star data-clip-started text-primary"></span>
@@ -27,7 +29,7 @@ export default class DataClipWidget extends React.Component {
               </p>
             </div>
             <div className="caption text-right">
-              <p> Alejo </p>
+              <p><img src={userImg} style={{width: 40, height: 40, borderRadius: '100%'}}/> {userName} </p>
             </div>
           </div>
         </div>

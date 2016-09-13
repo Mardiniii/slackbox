@@ -66,6 +66,13 @@ export default class Dashboard extends React.Component {
     }
   }
 
+  getUserData(dataclip) {
+    let user = _.filter(this.props.users, function(user) {
+                 return user.id == dataclip.user_id
+               })
+    return {name: user[0].username, image: user[0].image}
+  }
+
   render() {
     var component = this
     let teamName = this.props.team.name;
@@ -93,8 +100,10 @@ export default class Dashboard extends React.Component {
       )
     });
     let dataclips = this.state.filteredDataclips.map(function(dataclip) {
+      let userData = component.getUserData(dataclip)
       return (
         <DataClip key={dataclip.id} name={dataclip.name} data={dataclip.data}
+        userImg={userData.image} userName={userData.name}
         starred={dataclip.starred}/>
       );
     });

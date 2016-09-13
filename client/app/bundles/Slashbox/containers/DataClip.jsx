@@ -15,6 +15,8 @@ export default class DataClip extends React.Component {
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
     this.state = { name: this.props.name,
                    data: this.props.data,
+                   userName: this.props.userName,
+                   userImg: this.props.userImg,
                    starred: this.props.starred };
 
     // Uses lodash to bind all methods to the context of the object instance, otherwise
