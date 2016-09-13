@@ -2,7 +2,13 @@
 
 <%=
   react_component("Dashboard",
-  props: { team: @team, channels: @channels, dataclips: @dataclips }, prerender: false)
+  props: {
+    team: @team,
+    channels: @channels,
+    users: @users,
+    dataclips: @dataclips,
+    tags: @tags
+  }, prerender: false)
 %>
 
 <style>

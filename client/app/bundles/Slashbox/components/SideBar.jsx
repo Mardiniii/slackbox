@@ -15,7 +15,7 @@ export default class SideBar extends React.Component {
   }
 
   handleClick() {
-    this.props.handleTag(this.props.id, this.props.name)
+    this.props.handleTag(this.props.id, this.props.name, this.props.type)
   }
 
   render() {
