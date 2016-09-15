@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import SideBar from './SideBar';
 import DataClip from './DataClipWidget';
 import Tag from './Tag';
-import _ from 'underscore';
+import _ from 'lodash';
 
 export default class Dashboard extends React.Component {
 
