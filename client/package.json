@@ -29,10 +29,12 @@
     "imports-loader": "^0.6.5",
     "jquery": "^2.2.2",
     "jquery-ujs": "^1.2.1",
+    "json-loader": "^0.5.4",
     "loader-utils": "^0.2.13",
     "lodash": "^4.7.0",
     "react": "^0.14.8 || ^15.0.0",
     "react-dom": "^0.14.8 || ^15.0.0",
+    "react-markdown": "^2.4.2",
     "react-modal": "^1.4.0",
     "react-on-rails": "5.2.0",
     "webpack": "^1.12.14"

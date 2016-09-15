@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Modal from 'react-modal';
+import ReactMarkdown from 'react-markdown';
 
 export default class DataClipWidget extends React.Component {
   static propTypes = {
@@ -30,9 +31,7 @@ export default class DataClipWidget extends React.Component {
                     <h4 className="modal-title">{this.props.dataClip.name}</h4>
                   </div>
                     <div className="modal-body">
-                      <div className="markdown">
-                        <p className="text-center">{this.props.dataClip.data}</p>
-                      </div>
+                      <ReactMarkdown source={this.props.dataClip.data} escapeHtml={true} />
                     </div>
 
                     <div className="modal-footer">
