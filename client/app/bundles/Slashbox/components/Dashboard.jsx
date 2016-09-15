@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import SideBar from './SideBar';
 import DataClip from './DataClipWidget';
+import DataClipModal from './DataClipModal';
 import Tag from './Tag';
 import _ from 'lodash';
 
@@ -20,9 +21,11 @@ export default class Dashboard extends React.Component {
       filteredDataclips: this.props.dataclips,
       filterByChannel: '',
       filterByUser: '',
-      filterByTags: []
+      filterByTags: [],
+      dataClipModalVisible: false,
+      selectedDataClip: null
     };
-    _.bindAll(this, 'showTag', 'hideTag');
+    _.bindAll(this, 'showTag', 'hideTag','render');
   }
 
   showTag(id, name, type) {
@@ -99,16 +102,27 @@ export default class Dashboard extends React.Component {
         <Tag key={tag} name={tag} handleTag={component.hideTag} type="tag" />
       )
     });
-    let dataclips = this.state.filteredDataclips.map(function(dataclip) {
+    let dataclips = this.state.filteredDataclips.map((dataclip) => {
       let userData = component.getUserData(dataclip)
       return (
-        <DataClip key={dataclip.id} name={dataclip.name} data={dataclip.data}
-        userImg={userData.image} userName={userData.name}
-        starred={dataclip.starred}/>
+        <DataClip
+          key={dataclip.id}
+          name={dataclip.name}
+          data={dataclip.data}
+          userImg={userData.image}
+          userName={userData.name}
+          starred={dataclip.starred}
+          onClick={ () => { this.setState({dataClipModalVisible: true, selectedDataClip: dataclip}) } }
+        />
       );
     });
     return (
       <div id="dashboard" className="container-fluid">
+        <DataClipModal
+          visible={this.state.dataClipModalVisible}
+          dataClip={this.state.selectedDataClip}
+          onRequestClose={() => { this.setState({dataClipModalVisible: false, selectedDataClip: null}) }}
+        />
         <div className="row">
           <div className="col-md-2 col-sm-3 filter-options-box-1">
             <div className="col-md-12">
