@@ -1,0 +1,29 @@
+<%= render partial: 'layouts/navbar' %>
+
+<%=
+  react_component("Dashboard",
+  props: {
+    team: @team,
+    channels: @channels,
+    users: @users,
+    dataclips: @dataclips,
+    tags: @tags
+  }, prerender: false)
+%>
+
+<style>
+@media (max-width: 768px) {
+  .filter-options-box-1 {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter-options-box-2 {
+    display: none;
+  }
+  .filters-container span {
+    margin-right: 15px;
+  }
+}
+</style>

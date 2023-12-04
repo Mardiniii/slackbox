@@ -86,11 +86,11 @@ ActiveRecord::Schema.define(version: 20160829190645) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "team_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "username"
     t.string   "image"
+    t.integer  "team_id"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
